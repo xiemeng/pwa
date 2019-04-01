@@ -5,7 +5,11 @@
 		<title></title>
 	</head>
 	<body>
+		<pre>
+			1.install 事件：发生在浏览器安装并注册service worker时
+		</pre>
 		<img src="yong.png" />
+		<script async src="./js/ceshi.js"></script>
 		<script>
 			if('serviceWorker' in navigator){
 				navigator.serviceWorker.register('sw.js').then((registartion)=>{
