@@ -1,4 +1,4 @@
-var cacheName = 'hellWorld';
+var cacheName = 'hellWorld1';
 self.addEventListener('install',event => {
 	event.waitUntil(
 		caches.open(cacheName).then(cache =>{
