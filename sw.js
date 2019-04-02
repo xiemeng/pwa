@@ -11,6 +11,8 @@ self.addEventListener('install',event => {
 	)
 })
 self.addEventListener('fetch',(event)=>{
+	console.log('监听到了请求')
+	console.log(event)
 	event.respondWith(
 		caches.match(event.request).then((response)=>{
 			console.log(response)

@@ -6,16 +6,18 @@
 	</head>
 	<body>
 		<pre>
-			1.install 事件：发生在浏览器安装并注册service worker时
+			1.install 事件：发生在浏览器安装并注册service worker时。
+			2.event.waitUntil() 方法：安装成功后执行的函数，
+			3.fetch 事件：监听所有http请求
 		</pre>
 		<img src="yong.png" />
 		<script async src="./js/ceshi.js"></script>
 		<script>
 			if('serviceWorker' in navigator){
 				navigator.serviceWorker.register('sw.js').then((registartion)=>{
-					console.log('支持')
+					console.log('注册成功')
 				}).catch((err)=>{
-					console.log('不支持',err)
+					console.log('注册失败',err)
 				})
 			}
 		</script>
