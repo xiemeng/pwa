@@ -22,6 +22,17 @@
 					console.log('注册失败',err)
 				})
 			}
+			window.addEventListener('beforeinstallpromt',function(event){
+				event.userChoice.then(function(resuilt){
+					console.log('执行了')
+					console.log(result)
+					if(result.outcome == 'dismissed'){
+						console.log('状态1')
+					}else{
+						console.log('状态2')
+					}
+				})
+			})
 		</script>
 	</body>
 </html>
