@@ -4,14 +4,14 @@
   "description": "随时随地分享新鲜事",
   "icons": [
     {
-      "src": "./yong.png",
       "sizes": "192x192",
-      "type": "image/png"
+			"src": "https://res.moseacg.com/wp-content/uploads/2017/09/2017090916314942.png",
+			"type": "image/png"
     },
     {
-      "src": "./yong.png",
-      "sizes": "144x144",
-      "type": "image/png"
+      "sizes": "512x512",
+			"src": "https://res.moseacg.com/wp-content/uploads/2017/09/2017090916314942.png",
+			"type": "image/png"
     }
   ],
   "share_target": {
