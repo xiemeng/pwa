@@ -3,24 +3,25 @@
 	<head>
 		<meta charset="utf-8">
 		<title></title>
+		<link rel="manifest" href="./manifest.json" />
 	</head>
 	<body>
 		<pre>
 			1.install 事件：发生在浏览器安装并注册service worker时。
 			2.event.waitUntil() 方法：安装成功后执行的函数，
 			3.fetch 事件：监听所有http请求
-			4.
+			4.caches.match():匹配所有请求
 		</pre>
 		<img src="yong.png" />
 		<script async src="./js/ceshi.js"></script>
 		<script>
-			if('serviceWorker' in navigator){
-				navigator.serviceWorker.register('sw.js').then((registartion)=>{
-					console.log('注册成功')
-				}).catch((err)=>{
-					console.log('注册失败',err)
-				})
-			}
+// 			if('serviceWorker' in navigator){
+// 				navigator.serviceWorker.register('sw3.js').then((registartion)=>{
+// 					console.log('注册成功')
+// 				}).catch((err)=>{
+// 					console.log('注册失败',err)
+// 				})
+// 			}
 		</script>
 	</body>
 </html>

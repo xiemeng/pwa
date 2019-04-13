@@ -4,11 +4,11 @@
   "start_url": "/index.html",
   "display": "standalone",
   "background_color": "#fff",
-  "theme_color": "#3eaf7c",
+  "theme_color": "red", // 对浏览器的地址栏进行着色
   "icons": [
     {
       "src": "/yong.png",
-      "sizes": "120x120",
+      "sizes": "144x144",
       "type": "image/png"
     }
   ]
