@@ -26,6 +26,7 @@
 					return false;
 				})
 				btnSave.addEventListener('click',function(){
+					console.log(savedPrompt)
 					if(savedPrompt !== undefined){
 						savedPrompt.userChoice.then(function(result){
 							if(result.outcome == 'dismissed'){
