@@ -1,13 +1,13 @@
 {
   "name": "一个PWA示例",
   "short_name": "PWA示例",
-  "start_url": "/index.html",
+  "start_url": "./index.html",
   "display": "standalone",
   "background_color": "#fff",
   "theme_color": "red", // 对浏览器的地址栏进行着色
   "icons": [
     {
-      "src": "/yong.png",
+      "src": "./yong.png",
       "sizes": "144x144",
       "type": "image/png"
     }
