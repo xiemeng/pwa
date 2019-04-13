@@ -12,26 +12,40 @@
 			3.fetch 事件：监听所有http请求
 			4.caches.match():匹配所有请求
 		</pre>
+		<button id="btnSave">点我添加到桌面</button>
 		<img src="yong.png" />
 		<script async src="./js/ceshi.js"></script>
 		<script>
-			if('serviceWorker' in navigator){
-				navigator.serviceWorker.register('sw3.js').then((registartion)=>{
-					console.log('注册成功')
-				}).catch((err)=>{
-					console.log('注册失败',err)
+			window.addEventListener('load',function(){
+				var btnSave = document.getElementById('btnSave');
+				var savedPrompt;
+				window.addEventListener('beforeinstallpromt',function(event){
+					event.preventDefault();
+					btnSave.removeAttribute('disabled');
+					savedPrompt = event;
+					return false;
 				})
-			}
-			window.addEventListener('beforeinstallpromt',function(event){
-				event.userChoice.then(function(resuilt){
-					console.log('执行了')
-					console.log(result)
-					if(result.outcome == 'dismissed'){
-						console.log('状态1')
+				btnSave.addEventListener('click',function(){
+					if(savedPrompt !== undefined){
+						savedPrompt.userChoice.then(function(result){
+							if(result.outcome == 'dismissed'){
+								console.log('状态one')
+							}else{
+								console.log('状态two')
+							}
+							savedPrompt = null;
+						})
 					}else{
-						console.log('状态2')
+						console.log('状态three')
 					}
 				})
+				if('serviceWorker' in navigator){
+					navigator.serviceWorker.register('sw3.js').then((registartion)=>{
+						console.log('注册成功')
+					}).catch((err)=>{
+						console.log('注册失败',err)
+					})
+				}
 			})
 		</script>
 	</body>
