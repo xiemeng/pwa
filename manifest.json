@@ -4,13 +4,13 @@
   "description": "随时随地分享新鲜事",
   "icons": [
     {
-      "src": "https://h5.sinaimg.cn/m/weibo-lite/icon-default-192.png",
+      "src": "./yong.png",
       "sizes": "192x192",
       "type": "image/png"
     },
     {
-      "src": "https://h5.sinaimg.cn/m/weibo-lite/icon-default-512.png",
-      "sizes": "512x512",
+      "src": "./yong.png",
+      "sizes": "144x144",
       "type": "image/png"
     }
   ],
