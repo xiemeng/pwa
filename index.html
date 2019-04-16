@@ -14,13 +14,46 @@
 </body>
 <script>
   // 检测浏览器是否支持SW
+	var endpoint,key,authSecret;
+	var vapidPublickey = '';
+	function urlBase64ToUint8Array(base64String){
+		const padding = '='.repeat((4-base64String.length % 4) % 4);
+		const base64 = (base64String + paddig).replace(/\-/g,'+').replace(/_/g,'/');
+		const rawData = window.atob(base64);
+		const outputArray = new Uint8Array(rawData.length);
+		for(let i = 0;i<rawData.length,++i){
+			outputArray[i] = rawData.charCodeAt(i)
+		}
+		return outputArray
+	}
   if(navigator.serviceWorker != null){
     navigator.serviceWorker.register('sw.js')
     .then(function(registartion){
-      console.log('支持sw:')
-	  console.log(registartion)
+			return registartion.pushManager.getSubscription().then((subscription)=>{
+				if(subscription)return
+				return registartion.pushManager.subscribe({
+					userVisbleOnly:true,
+					applicationServerKey:urlBase64ToUint8Array(vapidPublickey)
+				}).then((subscription){
+					var rawKey = subscription.getKey?btoa(String.fromCharCode.apply(null,new Uint8Array(rawKey))):'';
+					var rawAuthSecret = subscription.getKey?subscription.getKey('auth');
+					authSecret = rawAuthSecret?btoa(String.fromCharCode.apply(null,new Uint8Array(rawAuthSecret))):'';
+					endpoint = subscription.endpoint;
+					return fetch('./register',{
+						method:'post',
+						headers:new Headers({
+							'content-type':'application/json'
+						}),
+						body:JSON.stringify({
+							endpoint:subscription.endpoint,
+							key:key,
+							authSecret:authSecret
+						})
+					})
+				})
+			})
     }).catch((err)=>{
-		console.log('不支持',err)
+		
 	})
   }
 </script>

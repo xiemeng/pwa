@@ -37,3 +37,32 @@ self.addEventListener('fetch',(event)=>{
 		})
 	)
 })
+self.addEventListener('push',function(even){
+	var payload = event.data?JSON.parse(event.data.text()):'no payload';
+	var title = 'times';
+	event.waitUntil(
+		self.registration.showNotification(title,{
+			body:payload.msg,
+			url:payload.url,
+			icon:payload.icon
+		})
+	)
+})
+self.addEventListener('notificationclick',(event)=>{
+	event.notification.close();
+	event.waitUntil(
+		clients.matchAll({
+			type:"window"
+		}).then((clientList)=>{
+			for(var i = 0;i<clientList.length;i++){
+				var client = clientList[i];
+				if(client.url == '/' && 'focus' in client){
+					return client.focus();
+				}
+				if(clients.openWindow){
+					return clients.openWindow('http://localhost:3111/')
+				}
+			}
+		})
+	)
+})
